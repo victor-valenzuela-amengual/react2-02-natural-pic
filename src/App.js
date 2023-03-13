@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./views/Home";
+import Favoritos from "./views/Favoritos";
+import { useEffect, useState } from "react";
+import Contexto from "./Context";
+
 
 function App() {
+  const endpoint = "/fotos.json";
+  const [galeria, setGaleria] = useState([]);
+  
+
+  const GetData = async () => {
+    const res = await fetch(endpoint);
+    let dataJson = await res.json();
+    let data = dataJson.photos.map((e) => ({
+      id: e.id,
+      src: e.src.tiny,
+      desc: e.alt,
+      favorito: false,
+    }));
+    setGaleria(data);        
+  };
+  useEffect(() => {
+    GetData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Contexto.Provider value={{ galeria, setGaleria }}>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/favoritos" element={<Favoritos />} />
+          </Routes>
+        </BrowserRouter>
+      </Contexto.Provider>
     </div>
   );
 }
