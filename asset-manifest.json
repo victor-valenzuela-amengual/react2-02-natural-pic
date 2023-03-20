@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react2-02-natural-pic/static/css/main.c32a6e44.css",
+    "main.js": "/react2-02-natural-pic/static/js/main.061e57e1.js",
+    "index.html": "/react2-02-natural-pic/index.html",
+    "main.c32a6e44.css.map": "/react2-02-natural-pic/static/css/main.c32a6e44.css.map",
+    "main.061e57e1.js.map": "/react2-02-natural-pic/static/js/main.061e57e1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c32a6e44.css",
+    "static/js/main.061e57e1.js"
+  ]
+}
