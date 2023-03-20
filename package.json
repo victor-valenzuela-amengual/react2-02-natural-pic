@@ -1,7 +1,7 @@
 {
   "name": "02-natural-pic",
   "version": "0.1.0",
-  "homepage": "https://victor-valenzuela-amengual.github.io/react2-02-natural-pic",
+  "homepage": "/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
