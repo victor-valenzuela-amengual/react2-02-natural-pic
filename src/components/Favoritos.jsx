@@ -8,7 +8,7 @@ import Header from "./Header";
 import "../assets/css/galeria.css";
 
 const Favoritos = () => {
-    const { galeria, setGaleria } = useContext(Contexto)            
+    const { galeria } = useContext(Contexto)            
     return (
         <div>
             <Header titulo='Galería de favoritos'></Header>

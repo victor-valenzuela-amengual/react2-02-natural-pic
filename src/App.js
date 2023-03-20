@@ -6,12 +6,10 @@ import Favoritos from "./views/Favoritos";
 import { useEffect, useState } from "react";
 import Contexto from "./Context";
 
-
 function App() {
   const endpoint = "/fotos.json";
   const [galeria, setGaleria] = useState([]);
   
-
   const GetData = async () => {
     const res = await fetch(endpoint);
     let dataJson = await res.json();
@@ -26,7 +24,7 @@ function App() {
   useEffect(() => {
     GetData();
   }, []);
-
+  console.log(galeria);
   return (
     <div className="App">
       <Contexto.Provider value={{ galeria, setGaleria }}>
